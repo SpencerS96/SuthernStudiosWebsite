@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devlog — Suthern Studios</title>
+  <meta name="description" content="Follow AfterShock's development. Devlog updates from Suthern Studios on world generation, colonist AI, combat systems, and more.">
+  <!-- OG -->
+  <meta property="og:title" content="Devlog — Suthern Studios">
+  <meta property="og:description" content="Follow AfterShock's development. Devlog updates on world generation, colonist AI, combat, and more.">
+  <meta property="og:image" content="https://suthernstudios.com/og-image.png">
+  <meta property="og:url" content="https://suthernstudios.com/devlog.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Suthern Studios">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Devlog — Suthern Studios">
+  <meta name="twitter:description" content="Follow AfterShock's development. Devlog updates on world generation, colonist AI, combat, and more.">
+  <meta name="twitter:image" content="https://suthernstudios.com/og-image.png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="logo-nav.png" alt="Suthern Studios" class="nav-logo-img">SUTHERN STUDIOS</a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html" onclick="closeMenu()">HOME</a></li>
+      <li><a href="about.html" onclick="closeMenu()">ABOUT</a></li>
+      <li><a href="aftershock.html" onclick="closeMenu()">AFTERSHOCK</a></li>
+      <li><a href="devlog.html" class="active" onclick="closeMenu()">DEVLOG</a></li>
+      <li><a href="contact.html" onclick="closeMenu()">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-content">
+    <span class="section-label">// TRANSMISSION_LOG</span>
+    <h1 class="section-title text-amber">DEVLOG</h1>
+
+    <p class="fade-in" style="font-size:1.2rem; color:var(--text-mid); line-height:1.7; margin-bottom:2.5rem; max-width:700px;">
+      Build logs from the wasteland. Follow AfterShock's development from first prototype to Steam Early Access.
+    </p>
+
+    <!-- ENTRY 3 -->
+    <div class="devlog-entry terminal fade-in">
+      <div class="terminal-chrome">
+        <span class="chrome-dot red"></span>
+        <span class="chrome-dot amber"></span>
+        <span class="chrome-dot green"></span>
+        <span class="chrome-title">LOG_003.TXT</span>
+      </div>
+      <div class="terminal-body">
+        <div class="devlog-meta">
+          <span class="devlog-date">2026.03.20</span>
+          <span class="devlog-tag">COMBAT</span>
+          <span class="devlog-tag">AI</span>
+        </div>
+        <h2 class="devlog-title">Raiders at the Gate: Faction AI Is Live</h2>
+        <div class="devlog-body">
+          <p>Big milestone this week — <strong>faction raids are now functional</strong>. Enemy groups spawn from the world map, path toward your colony, and engage your colonists using the cover system. They'll flank, retreat when injured, and prioritize undefended stockpiles.</p>
+          <div class="devlog-img-placeholder">
+            <span>[ SCREENSHOT COMING SOON ]</span>
+          </div>
+          <p>The combat AI uses a behavior tree with fallback nodes. Raiders evaluate cover positions, check line of sight, and coordinate loosely as a group. It's not chess-level tactics yet, but they feel dangerous — which is the goal.</p>
+          <p>Next up: loot drops from raids and a reputation system that scales raid difficulty based on colony wealth. The rich get raided harder.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENTRY 2 -->
+    <div class="devlog-entry terminal fade-in-2">
+      <div class="terminal-chrome">
+        <span class="chrome-dot red"></span>
+        <span class="chrome-dot amber"></span>
+        <span class="chrome-dot green"></span>
+        <span class="chrome-title">LOG_002.TXT</span>
+      </div>
+      <div class="terminal-body">
+        <div class="devlog-meta">
+          <span class="devlog-date">2026.03.08</span>
+          <span class="devlog-tag">SYSTEMS</span>
+          <span class="devlog-tag">CRAFTING</span>
+        </div>
+        <h2 class="devlog-title">Crafting, Quality Tiers, and the Production Chain</h2>
+        <div class="devlog-body">
+          <p>The crafting system is in and it's deeper than I initially planned. Every recipe requires specific <strong>tools and materials</strong>, and the output quality scales with colonist skill level plus tool quality. A stone axe and a steel axe both chop wood — but the steel axe does it faster and at higher quality.</p>
+          <p>Production chains are starting to emerge naturally. You mine iron ore → smelt iron ingots → forge tools → use tools to build better structures. Each step requires a workstation, a skilled colonist, and time. No instant crafting here.</p>
+          <div class="devlog-img-placeholder">
+            <span>[ SCREENSHOT COMING SOON ]</span>
+          </div>
+          <p>The recipe system is <code>JSON</code>-driven and fully moddable. Want to add a new weapon that requires irradiated crystal? Add a JSON file and a sprite. That's it.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENTRY 1 -->
+    <div class="devlog-entry terminal fade-in-3">
+      <div class="terminal-chrome">
+        <span class="chrome-dot red"></span>
+        <span class="chrome-dot amber"></span>
+        <span class="chrome-dot green"></span>
+        <span class="chrome-title">LOG_001.TXT</span>
+      </div>
+      <div class="terminal-body">
+        <div class="devlog-meta">
+          <span class="devlog-date">2026.02.22</span>
+          <span class="devlog-tag">WORLDGEN</span>
+          <span class="devlog-tag">PROCEDURAL</span>
+        </div>
+        <h2 class="devlog-title">World Generation: One Seed to Build Them All</h2>
+        <div class="devlog-body">
+          <p>The world generator is the foundation everything else sits on, so I spent a lot of time getting it right. Every world in AfterShock is built from a <strong>single seed value</strong> that deterministically generates:</p>
+          <p>Terrain heightmaps and moisture maps → <strong>16 distinct biomes</strong> (from scorched desert to frozen tundra) → river systems that follow terrain → radiation zones from nuclear blast sites → ruined cities with lootable structures → road networks connecting settlements.</p>
+          <div class="devlog-img-placeholder">
+            <span>[ SCREENSHOT COMING SOON ]</span>
+          </div>
+          <p>The same seed always produces the same world. Share a seed with a friend and you'll get identical maps. This also makes bug reports easier — "seed 42069, northeast corner, the river clips through a ruin" is a reproducible report.</p>
+          <p>The world map is fully explorable via the expedition system, but your colony only occupies one tile at a time. Think of it like RimWorld's world map but with more terrain variety and radiation as a core mechanic.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENTRY 0 -->
+    <div class="devlog-entry terminal fade-in-4">
+      <div class="terminal-chrome">
+        <span class="chrome-dot red"></span>
+        <span class="chrome-dot amber"></span>
+        <span class="chrome-dot green"></span>
+        <span class="chrome-title">LOG_000.TXT</span>
+      </div>
+      <div class="terminal-body">
+        <div class="devlog-meta">
+          <span class="devlog-date">2026.02.10</span>
+          <span class="devlog-tag">ANNOUNCEMENT</span>
+        </div>
+        <h2 class="devlog-title">Transmission Begins</h2>
+        <div class="devlog-body">
+          <p>This is <strong>Suthern Studios</strong> — a one-person indie operation building AfterShock, a post-apocalyptic colony simulation with pixel art visuals and deeply interconnected survival systems.</p>
+          <p>This devlog is where I'll document the build process. Wins, losses, technical deep-dives, and the occasional rant about pathfinding algorithms. If you're into colony sims, survival games, or just want to watch someone build a game from scratch — pull up a chair.</p>
+          <p>First real entry drops next week: how AfterShock's procedural world generation works under the hood.</p>
+          <p><strong>Stay tuned. Stay alive.</strong></p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- NEWSLETTER -->
+  <div style="max-width:1100px; margin:0 auto; padding:0 2rem;">
+    <div class="newsletter-bar">
+      <div class="nl-text">
+        <div class="nl-title">&gt; SUBSCRIBE_</div>
+        <div class="nl-desc">Get devlog updates and launch news. No spam — just build logs from the wasteland.</div>
+      </div>
+      <div>
+        <div class="nl-form" id="nl-form">
+          <input type="email" id="nl-email" placeholder="your@email.com" required>
+          <button type="button" onclick="submitNewsletter()">&gt; SUBSCRIBE</button>
+        </div>
+        <div class="nl-status" id="nl-status"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-rust-line">
+      <span style="background:var(--rust-dark);width:40px"></span>
+      <span style="background:var(--rust-mid);width:20px"></span>
+      <span style="background:var(--rust-light);width:30px"></span>
+      <span style="background:var(--rust-mid);width:15px"></span>
+      <span style="background:var(--rust-dark);width:40px"></span>
+    </div>
+    <p>&copy; 2026 SUTHERN STUDIOS &mdash; ALL RIGHTS RESERVED</p>
+    <div class="footer-nav">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="aftershock.html">AFTERSHOCK</a>
+      <a href="devlog.html">DEVLOG</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </footer>
+
+  <script>
+    function closeMenu() { document.querySelector('.nav-links').classList.remove('open'); }
+
+    /*
+     * NEWSLETTER SETUP:
+     * Option A — Buttondown (recommended, free):
+     *   1. Sign up at https://buttondown.com
+     *   2. Replace YOUR_BUTTONDOWN_USERNAME below
+     *   3. The form posts to their API
+     *
+     * Option B — Mailchimp:
+     *   Replace the fetch URL with your Mailchimp form action URL
+     *
+     * Option C — Formspree:
+     *   Use your Formspree form ID like the contact form
+     */
+    async function submitNewsletter() {
+      const email = document.getElementById('nl-email').value.trim();
+      const status = document.getElementById('nl-status');
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        status.textContent = '> ERROR: Valid email required.';
+        status.className = 'nl-status error';
+        return;
+      }
+
+      try {
+        const res = await fetch('https://buttondown.com/api/emails/embed-subscribe/YOUR_BUTTONDOWN_USERNAME', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, tag: 'website' })
+        });
+
+        if (res.ok) {
+          status.textContent = '> SUBSCRIBED. Welcome to the wasteland.';
+          status.className = 'nl-status success';
+          document.getElementById('nl-email').value = '';
+        } else {
+          throw new Error();
+        }
+      } catch {
+        status.textContent = '> ERROR: Subscription failed. Try again later.';
+        status.className = 'nl-status error';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suthern Studios — Survive the Collapse</title>
+  <meta name="description" content="Suthern Studios — Indie game studio behind AfterShock, a post-apocalyptic colony simulation.">
+  <!-- OG -->
+  <meta property="og:title" content="Suthern Studios — Survive the Collapse">
+  <meta property="og:description" content="Indie game studio behind AfterShock, a post-apocalyptic colony sim. Survive the collapse. Build what comes next.">
+  <meta property="og:image" content="https://suthernstudios.com/og-image.png">
+  <meta property="og:url" content="https://suthernstudios.com/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Suthern Studios">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Suthern Studios — Survive the Collapse">
+  <meta name="twitter:description" content="Indie game studio behind AfterShock, a post-apocalyptic colony sim. Survive the collapse. Build what comes next.">
+  <meta name="twitter:image" content="https://suthernstudios.com/og-image.png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* HOME-SPECIFIC */
+    .home-wrap {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 6rem 2rem 4rem;
+    }
+
+    .hero-terminal { max-width: 720px; width: 100%; }
+    .hero-terminal .terminal-body { padding: 2.5rem 2rem; }
+
+    .boot-line {
+      font-family: var(--font-body); font-size: 1.1rem;
+      color: var(--text-dim); margin-bottom: 0.3rem;
+      opacity: 0; animation: boot-appear 0.1s forwards;
+    }
+    .boot-line:nth-child(1) { animation-delay: 0.3s; }
+    .boot-line:nth-child(2) { animation-delay: 0.6s; }
+    .boot-line:nth-child(3) { animation-delay: 0.9s; }
+    .boot-line:nth-child(4) { animation-delay: 1.3s; }
+    .boot-line:nth-child(5) { animation-delay: 1.5s; }
+    @keyframes boot-appear { to { opacity: 1; } }
+
+    .boot-spacer { height: 1.2rem; }
+
+    .hero-title-wrap {
+      margin-top: 1rem; opacity: 0;
+      animation: boot-appear 0.5s 1.8s forwards;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 4vw, 2.2rem);
+      color: var(--phosphor-amber);
+      text-shadow: 0 0 10px rgba(255,170,32,0.5), 0 0 40px rgba(255,170,32,0.2), 0 0 80px rgba(255,170,32,0.08);
+      letter-spacing: 4px; margin-bottom: 1rem;
+      animation: phosphor-flicker 5s infinite alternate;
+    }
+
+    @keyframes phosphor-flicker { 0%,94%,100%{opacity:1}95%{opacity:0.88}96%{opacity:1}97%{opacity:0.92} }
+
+    .hero-tagline {
+      font-family: var(--font-body); font-size: 1.5rem;
+      color: var(--phosphor-amber-dim); letter-spacing: 2px;
+      opacity: 0; animation: boot-appear 0.5s 2.2s forwards;
+    }
+
+    .hero-caret {
+      display: inline-block; width: 12px; height: 2px;
+      background: var(--phosphor-amber);
+      animation: blink-cursor 1s step-end infinite;
+      vertical-align: middle; margin-left: 4px;
+      box-shadow: 0 0 6px var(--phosphor-amber-glow);
+    }
+    @keyframes blink-cursor { 0%,50%{opacity:1}51%,100%{opacity:0} }
+
+    .hero-nav {
+      margin-top: 2.5rem;
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      opacity: 0; animation: boot-appear 0.3s 2.6s forwards;
+    }
+
+    /* Quick info tiles below terminal */
+    .home-tiles {
+      max-width: 720px; width: 100%;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1rem; margin-top: 2rem;
+      opacity: 0; animation: boot-appear 0.5s 3s forwards;
+    }
+
+    .home-tile {
+      padding: 1.2rem;
+      border-left: 3px solid var(--rust-mid);
+      transition: border-color 0.3s, transform 0.3s;
+      text-decoration: none; color: inherit; display: block;
+    }
+
+    .home-tile:hover {
+      border-left-color: var(--phosphor-amber);
+      transform: translateX(4px);
+    }
+
+    .home-tile h3 {
+      font-family: var(--font-display); font-size: 0.45rem;
+      color: var(--phosphor-amber-dim); margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    .home-tile p {
+      font-size: 1rem; color: var(--text-mid); line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .home-tiles { grid-template-columns: 1fr; }
+      .hero-terminal .terminal-body { padding: 1.5rem; }
+      .hero-nav { flex-direction: column; }
+      .hero-nav a { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="logo-nav.png" alt="Suthern Studios" class="nav-logo-img">SUTHERN STUDIOS</a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" onclick="closeMenu()">HOME</a></li>
+      <li><a href="about.html" onclick="closeMenu()">ABOUT</a></li>
+      <li><a href="aftershock.html" onclick="closeMenu()">AFTERSHOCK</a></li>
+      <li><a href="devlog.html" onclick="closeMenu()">DEVLOG</a></li>
+      <li><a href="contact.html" onclick="closeMenu()">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <main class="home-wrap">
+    <div class="hero-terminal terminal">
+      <div class="terminal-chrome">
+        <span class="chrome-dot red"></span>
+        <span class="chrome-dot amber"></span>
+        <span class="chrome-dot green"></span>
+        <span class="chrome-title">SYS://MAIN_TERMINAL</span>
+      </div>
+      <div class="terminal-body">
+        <div class="boot-line text-dim">&gt; BIOS CHECK .......... OK</div>
+        <div class="boot-line text-dim">&gt; MEMORY 640K ......... OK</div>
+        <div class="boot-line text-dim">&gt; RADIATION SENSOR ..... ELEVATED</div>
+        <div class="boot-line" style="color:var(--warn-red)">&gt; WARNING: EXTERNAL THREAT LEVEL HIGH</div>
+        <div class="boot-line text-dim">&gt; LOADING SUTHERN_OS v2.1 ...</div>
+        <div class="boot-spacer"></div>
+        <div class="hero-title-wrap">
+          <img src="logo-120.png" alt="Suthern Studios" style="width:100px; height:100px; image-rendering:pixelated; border-radius:50%; border:2px solid var(--rust-mid); box-shadow:0 0 20px rgba(255,170,32,0.15); margin-bottom:1.2rem;">
+          <h1 class="hero-title">SUTHERN STUDIOS</h1>
+          <p class="hero-tagline">Survive the collapse. Build what comes next.<span class="hero-caret"></span></p>
+        </div>
+        <div class="hero-nav">
+          <a href="aftershock.html" class="btn-amber">&gt; DISCOVER AFTERSHOCK</a>
+          <a href="about.html" class="btn-outline">&gt; ABOUT THE STUDIO</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-tiles">
+      <a href="aftershock.html" class="home-tile rust-panel">
+        <h3>&#9762; AFTERSHOCK</h3>
+        <p>Post-apocalyptic colony sim. Procedural worlds, deep survival systems, pixel art. Coming to Steam.</p>
+      </a>
+      <a href="about.html" class="home-tile rust-panel">
+        <h3>&gt; THE STUDIO</h3>
+        <p>Solo indie dev. Unity, C#, Retro Diffusion. Building games with soul from the ground up.</p>
+      </a>
+      <a href="contact.html" class="home-tile rust-panel">
+        <h3>@ COMMS</h3>
+        <p>Get in touch. Follow development, join the community, or send us a message.</p>
+      </a>
+    </div>
+  </main>
+
+
+  <!-- NEWSLETTER -->
+  <div style="max-width:1100px; margin:0 auto; padding:0 2rem;">
+    <div class="newsletter-bar">
+      <div class="nl-text">
+        <div class="nl-title">&gt; SUBSCRIBE_</div>
+        <div class="nl-desc">Get devlog updates and launch news. No spam — just build logs from the wasteland.</div>
+      </div>
+      <div>
+        <div class="nl-form" id="nl-form">
+          <input type="email" id="nl-email" placeholder="your@email.com" required>
+          <button type="button" onclick="submitNewsletter()">&gt; SUBSCRIBE</button>
+        </div>
+        <div class="nl-status" id="nl-status"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-rust-line">
+      <span style="background:var(--rust-dark);width:40px"></span>
+      <span style="background:var(--rust-mid);width:20px"></span>
+      <span style="background:var(--rust-light);width:30px"></span>
+      <span style="background:var(--rust-mid);width:15px"></span>
+      <span style="background:var(--rust-dark);width:40px"></span>
+    </div>
+    <p>&copy; 2026 SUTHERN STUDIOS &mdash; ALL RIGHTS RESERVED</p>
+    <div class="footer-nav">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="aftershock.html">AFTERSHOCK</a>
+      <a href="devlog.html">DEVLOG</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </footer>
+
+  <script>
+    function closeMenu() { document.querySelector('.nav-links').classList.remove('open'); }
+  </script>
+</body>
+</html>

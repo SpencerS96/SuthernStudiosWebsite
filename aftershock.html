@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AfterShock — Suthern Studios</title>
+  <meta name="description" content="AfterShock — A post-apocalyptic colony simulation. Procedural worlds, deep survival systems, pixel art. Coming to Steam Early Access.">
+  <!-- OG -->
+  <meta property="og:title" content="AfterShock — Suthern Studios">
+  <meta property="og:description" content="Post-apocalyptic colony sim. Procedural worlds, deep survival systems, pixel art. Coming to Steam Early Access.">
+  <meta property="og:image" content="https://suthernstudios.com/og-image.png">
+  <meta property="og:url" content="https://suthernstudios.com/aftershock.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Suthern Studios">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AfterShock — Suthern Studios">
+  <meta name="twitter:description" content="Post-apocalyptic colony sim. Procedural worlds, deep survival systems, pixel art. Coming to Steam Early Access.">
+  <meta name="twitter:image" content="https://suthernstudios.com/og-image.png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* AFTERSHOCK PAGE */
+    .as-hero { margin-bottom: 2.5rem; }
+    .as-hero .terminal-body { padding: 0; }
+    .as-hero-inner { display: grid; grid-template-columns: 1fr 1fr; }
+
+    .as-thumb {
+      background: var(--bg-screen-dim);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden; min-height: 320px;
+      border-right: 2px solid var(--rust-dark);
+    }
+
+    .wasteland-scene {
+      display: grid;
+      grid-template-columns: repeat(16, 1fr);
+      grid-template-rows: repeat(12, 1fr);
+      width: 88%; aspect-ratio: 4/3; gap: 1px; opacity: 0.9;
+      filter: brightness(0.85) saturate(0.8);
+    }
+    .wasteland-scene i { display: block; width: 100%; aspect-ratio: 1; }
+    .ws-sky{background:#12100a}.ws-cloud{background:#1e1a12}.ws-sun{background:#cc7700}
+    .ws-rad{background:#998a00;opacity:0.5}.ws-ruin{background:#2e2820}
+    .ws-ruin-d{background:#201c16}.ws-ground{background:#1e1a10}.ws-dirt{background:#2a2214}
+    .ws-green{background:#1e3612}.ws-fire{background:#aa3300}.ws-fire-y{background:#cc8800}
+    .ws-wall{background:#3e3830}.ws-wall-d{background:#302c24}.ws-door{background:#4a3820}
+    .ws-person{background:var(--phosphor-amber)}.ws-empty{background:transparent}
+
+    .as-badge {
+      position: absolute; top: 12px; left: 12px;
+      font-family: var(--font-display); font-size: 0.4rem;
+      padding: 0.35rem 0.7rem; background: var(--warn-red);
+      color: var(--white); letter-spacing: 1px;
+      box-shadow: 0 0 8px rgba(204,51,34,0.3);
+    }
+
+    .as-content {
+      padding: 2.5rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+
+    .as-genre-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+    .as-genre-tag {
+      font-family: var(--font-display); font-size: 0.38rem;
+      color: var(--text-dim); border: 1px solid var(--rust-dark);
+      padding: 0.3rem 0.6rem; letter-spacing: 1px;
+      background: rgba(0,0,0,0.3);
+    }
+
+    .as-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      color: var(--phosphor-amber);
+      text-shadow: 0 0 20px rgba(255,170,32,0.3);
+      margin-bottom: 0.6rem; letter-spacing: 3px; line-height: 1.6;
+    }
+
+    .as-tagline {
+      font-family: var(--font-body); font-size: 1.4rem;
+      color: var(--white); margin-bottom: 1rem; font-style: italic;
+    }
+
+    .as-pitch {
+      font-family: var(--font-body); font-size: 1.15rem;
+      color: var(--text-mid); line-height: 1.7; margin-bottom: 1.5rem;
+    }
+
+    .as-btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* Description terminal */
+    .as-description { margin-bottom: 2.5rem; }
+    .as-description .terminal-body p { font-size: 1.15rem; color: var(--text-mid); line-height: 1.8; max-width: 800px; }
+    .as-description .terminal-body p + p { margin-top: 1rem; }
+    .as-description strong { color: var(--phosphor-amber); text-shadow: 0 0 6px var(--phosphor-amber-glow); }
+
+    /* Features */
+    .as-features-label {
+      font-family: var(--font-display); font-size: 0.6rem;
+      color: var(--rust-light); letter-spacing: 2px; margin-bottom: 1.5rem;
+    }
+
+    .as-features-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.8rem; margin-bottom: 3rem;
+    }
+
+    .as-feature {
+      background: linear-gradient(135deg, rgba(26,21,16,0.8), rgba(58,42,26,0.3));
+      border: 1px solid var(--rust-dark);
+      border-left: 3px solid var(--rust-mid);
+      padding: 1rem 1.3rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+      transition: border-left-color 0.3s, transform 0.3s;
+    }
+    .as-feature:hover { border-left-color: var(--phosphor-amber); transform: translateX(4px); }
+
+    .as-feature-icon {
+      font-family: var(--font-display); font-size: 0.4rem;
+      color: var(--warn-red); min-width: 16px; padding-top: 4px;
+    }
+    .as-feature p { font-size: 1.05rem; color: var(--text-mid); line-height: 1.5; }
+
+    /* Bottom CTA */
+    .as-bottom-cta {
+      text-align: center; padding: 3rem 0;
+    }
+    .as-bottom-cta p {
+      font-family: var(--font-body); font-size: 1.3rem;
+      color: var(--text-mid); margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .as-hero-inner { grid-template-columns: 1fr; }
+      .as-thumb { min-height: 200px; border-right: none; border-bottom: 2px solid var(--rust-dark); }
+      .as-content { padding: 1.5rem; }
+      .as-features-grid { grid-template-columns: 1fr; }
+      .as-btn-row { flex-direction: column; }
+      .as-btn-row a { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="logo-nav.png" alt="Suthern Studios" class="nav-logo-img">SUTHERN STUDIOS</a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html" onclick="closeMenu()">HOME</a></li>
+      <li><a href="about.html" onclick="closeMenu()">ABOUT</a></li>
+      <li><a href="aftershock.html" class="active" onclick="closeMenu()">AFTERSHOCK</a></li>
+      <li><a href="devlog.html" onclick="closeMenu()">DEVLOG</a></li>
+      <li><a href="contact.html" onclick="closeMenu()">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-content">
+    <span class="section-label">// PROGRAM: AFTERSHOCK</span>
+    <h1 class="section-title text-amber">AFTERSHOCK</h1>
+
+    <!-- Hero Card -->
+    <div class="as-hero terminal fade-in">
+      <div class="terminal-chrome">
+        <span class="chrome-dot red"></span>
+        <span class="chrome-dot amber"></span>
+        <span class="chrome-dot green"></span>
+        <span class="chrome-title">AFTERSHOCK.EXE</span>
+      </div>
+      <div class="terminal-body">
+        <div class="as-hero-inner">
+          <div class="as-thumb">
+            <div class="wasteland-scene">
+              <i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-cloud"></i><i class="ws-cloud"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-sun"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-cloud"></i><i class="ws-sky"></i>
+              <i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-cloud"></i><i class="ws-cloud"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-sun"></i><i class="ws-sun"></i><i class="ws-sun"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-sky"></i>
+              <i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-ruin"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-ruin"></i><i class="ws-ruin"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-sun"></i><i class="ws-sky"></i><i class="ws-ruin"></i><i class="ws-sky"></i><i class="ws-sky"></i>
+              <i class="ws-sky"></i><i class="ws-ruin-d"></i><i class="ws-ruin"></i><i class="ws-ruin-d"></i><i class="ws-sky"></i><i class="ws-ruin"></i><i class="ws-ruin"></i><i class="ws-ruin"></i><i class="ws-ruin-d"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-sky"></i><i class="ws-ruin-d"></i><i class="ws-ruin"></i><i class="ws-ruin-d"></i><i class="ws-sky"></i>
+              <i class="ws-ground"></i><i class="ws-ruin-d"></i><i class="ws-ruin"></i><i class="ws-ruin-d"></i><i class="ws-ground"></i><i class="ws-ruin-d"></i><i class="ws-ruin"></i><i class="ws-ruin"></i><i class="ws-ruin-d"></i><i class="ws-ground"></i><i class="ws-rad"></i><i class="ws-ground"></i><i class="ws-ruin-d"></i><i class="ws-ruin"></i><i class="ws-ruin-d"></i><i class="ws-ground"></i>
+              <i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-dirt"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-rad"></i><i class="ws-rad"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-dirt"></i>
+              <i class="ws-dirt"></i><i class="ws-ground"></i><i class="ws-wall"></i><i class="ws-wall"></i><i class="ws-wall"></i><i class="ws-wall"></i><i class="ws-wall"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-green"></i><i class="ws-green"></i><i class="ws-ground"></i><i class="ws-ground"></i>
+              <i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-wall"></i><i class="ws-person"></i><i class="ws-empty"></i><i class="ws-empty"></i><i class="ws-wall"></i><i class="ws-door"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-person"></i><i class="ws-ground"></i><i class="ws-green"></i><i class="ws-green"></i><i class="ws-green"></i><i class="ws-ground"></i>
+              <i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-wall"></i><i class="ws-empty"></i><i class="ws-person"></i><i class="ws-empty"></i><i class="ws-wall"></i><i class="ws-ground"></i><i class="ws-fire"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-green"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i>
+              <i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-wall-d"></i><i class="ws-wall-d"></i><i class="ws-wall-d"></i><i class="ws-wall-d"></i><i class="ws-wall-d"></i><i class="ws-ground"></i><i class="ws-fire-y"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-dirt"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-dirt"></i>
+              <i class="ws-dirt"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-dirt"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-dirt"></i><i class="ws-ground"></i><i class="ws-ground"></i>
+              <i class="ws-ground"></i><i class="ws-dirt"></i><i class="ws-ground"></i><i class="ws-dirt"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-dirt"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-dirt"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-ground"></i><i class="ws-dirt"></i><i class="ws-ground"></i>
+            </div>
+            <span class="as-badge">&#9762; IN DEVELOPMENT</span>
+          </div>
+          <div class="as-content">
+            <div class="as-genre-tags">
+              <span class="as-genre-tag">COLONY SIM</span>
+              <span class="as-genre-tag">SURVIVAL</span>
+              <span class="as-genre-tag">STRATEGY</span>
+              <span class="as-genre-tag">BASE BUILDING</span>
+              <span class="as-genre-tag">PROCEDURAL GEN</span>
+              <span class="as-genre-tag">PIXEL ART</span>
+            </div>
+            <h2 class="as-title">AFTERSHOCK</h2>
+            <p class="as-tagline">Survive the collapse. Build what comes next.</p>
+            <p class="as-pitch">A post-apocalyptic colony simulation where you guide a band of survivors through a procedurally generated wasteland — building shelter, managing needs, crafting tools, and defending against raids. Think RimWorld meets a pixel art nuclear apocalypse.</p>
+            <div class="as-btn-row">
+              <a href="#" class="btn-amber">&gt; WISHLIST ON STEAM</a>
+              <a href="contact.html" class="btn-outline">&gt; FOLLOW DEV</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="as-description terminal fade-in-2">
+      <div class="terminal-chrome">
+        <span class="chrome-dot red"></span>
+        <span class="chrome-dot amber"></span>
+        <span class="chrome-dot green"></span>
+        <span class="chrome-title">README.TXT</span>
+      </div>
+      <div class="terminal-body">
+        <p><strong>AfterShock</strong> is a deep colony simulation set in the aftermath of civilization's collapse. Every world is procedurally generated from a single seed — layering terrain, climate, biomes, radiation zones, ruined cities, and road networks across a full world map before you ever place your first wall.</p>
+        <p>Your colonists are more than numbers. They get hungry, exhausted, and stressed. Their mood drops when needs go unmet, and pushed too far, they break. Assign jobs, prioritize work, build defenses, and craft gear through a flexible recipe and production system. When raiders come, your colonists fight back with melee and ranged combat, using cover and tactical AI.</p>
+        <p>Explore the wasteland on expeditions, farm crops, raise animals, mine deep deposits, and smelt ingots. Every system connects — <strong>what you grow feeds who you keep alive.</strong></p>
+      </div>
+    </div>
+
+    <div class="rust-divider"></div>
+
+    <!-- Features -->
+    <div class="as-features-label fade-in-3">&gt; KEY_FEATURES.LOG</div>
+    <div class="as-features-grid fade-in-3">
+      <div class="as-feature">
+        <span class="as-feature-icon">&#9762;</span>
+        <p>Procedural world generation with 16 biomes, radiation zones, rivers, and ruined cities</p>
+      </div>
+      <div class="as-feature">
+        <span class="as-feature-icon">&#9762;</span>
+        <p>Deep colonist simulation — hunger, sleep, mood, health, mental breaks</p>
+      </div>
+      <div class="as-feature">
+        <span class="as-feature-icon">&#9762;</span>
+        <p>Flexible crafting and production with quality tiers and tool requirements</p>
+      </div>
+      <div class="as-feature">
+        <span class="as-feature-icon">&#9762;</span>
+        <p>Melee and ranged combat with faction AI, cover systems, and raids</p>
+      </div>
+      <div class="as-feature">
+        <span class="as-feature-icon">&#9762;</span>
+        <p>Expedition system with world map exploration and NPC settlements</p>
+      </div>
+      <div class="as-feature">
+        <span class="as-feature-icon">&#9762;</span>
+        <p>Agriculture, cooking, wildlife, animal husbandry, and hunting</p>
+      </div>
+      <div class="as-feature">
+        <span class="as-feature-icon">&#9762;</span>
+        <p>Mining, smelting, and deep resource extraction</p>
+      </div>
+      <div class="as-feature">
+        <span class="as-feature-icon">&#9762;</span>
+        <p>Pixel art aesthetic — 32&times;32 tiles with URP 2D rendering</p>
+      </div>
+      <div class="as-feature">
+        <span class="as-feature-icon">&#9762;</span>
+        <p>Mod-friendly architecture with full modding rights</p>
+      </div>
+    </div>
+
+    <div class="rust-divider"></div>
+
+    <!-- Bottom CTA -->
+    <div class="as-bottom-cta fade-in-4">
+      <p>AfterShock is coming to Steam Early Access. Wishlist now to get notified at launch.</p>
+      <a href="#" class="btn-amber">&gt; WISHLIST ON STEAM</a>
+    </div>
+  </main>
+
+
+  <!-- NEWSLETTER -->
+  <div style="max-width:1100px; margin:0 auto; padding:0 2rem;">
+    <div class="newsletter-bar">
+      <div class="nl-text">
+        <div class="nl-title">&gt; SUBSCRIBE_</div>
+        <div class="nl-desc">Get devlog updates and launch news. No spam — just build logs from the wasteland.</div>
+      </div>
+      <div>
+        <div class="nl-form" id="nl-form">
+          <input type="email" id="nl-email" placeholder="your@email.com" required>
+          <button type="button" onclick="submitNewsletter()">&gt; SUBSCRIBE</button>
+        </div>
+        <div class="nl-status" id="nl-status"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-rust-line">
+      <span style="background:var(--rust-dark);width:40px"></span>
+      <span style="background:var(--rust-mid);width:20px"></span>
+      <span style="background:var(--rust-light);width:30px"></span>
+      <span style="background:var(--rust-mid);width:15px"></span>
+      <span style="background:var(--rust-dark);width:40px"></span>
+    </div>
+    <p>&copy; 2026 SUTHERN STUDIOS &mdash; ALL RIGHTS RESERVED</p>
+    <div class="footer-nav">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="aftershock.html">AFTERSHOCK</a>
+      <a href="devlog.html">DEVLOG</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </footer>
+
+  <script>
+    function closeMenu() { document.querySelector('.nav-links').classList.remove('open'); }
+  </script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Suthern Studios</title>
+  <meta name="description" content="About Suthern Studios — a solo indie game development studio building deep, systems-driven games with pixel art.">
+  <!-- OG -->
+  <meta property="og:title" content="About — Suthern Studios">
+  <meta property="og:description" content="Solo indie dev studio building deep, systems-driven games with pixel art. Unity, C#, Retro Diffusion.">
+  <meta property="og:image" content="https://suthernstudios.com/og-image.png">
+  <meta property="og:url" content="https://suthernstudios.com/about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Suthern Studios">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About — Suthern Studios">
+  <meta name="twitter:description" content="Solo indie dev studio building deep, systems-driven games with pixel art. Unity, C#, Retro Diffusion.">
+  <meta name="twitter:image" content="https://suthernstudios.com/og-image.png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-intro {
+      font-size: 1.35rem; color: var(--text-mid);
+      line-height: 1.8; max-width: 750px; margin-bottom: 2.5rem;
+    }
+    .about-intro strong { color: var(--phosphor-amber); text-shadow: 0 0 6px var(--phosphor-amber-glow); }
+
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.5rem; margin-bottom: 3rem;
+    }
+
+    .stat-block {
+      padding: 1.8rem;
+      border-left: 4px solid var(--rust-mid);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .stat-block:hover { border-left-color: var(--phosphor-amber); transform: translateX(4px); }
+    .stat-block h3 {
+      font-family: var(--font-display); font-size: 0.55rem;
+      color: var(--phosphor-amber-dim); margin-bottom: 0.8rem; letter-spacing: 1px;
+    }
+    .stat-block p { color: var(--text-mid); font-size: 1.15rem; line-height: 1.7; }
+
+    /* Philosophy terminal */
+    .philosophy-terminal { max-width: 800px; margin-bottom: 3rem; }
+    .philosophy-terminal .terminal-body { padding: 2rem; }
+
+    .philosophy-item {
+      margin-bottom: 1.5rem;
+      padding-left: 1.2rem;
+      border-left: 2px solid var(--rust-dark);
+    }
+    .philosophy-item:last-child { margin-bottom: 0; }
+
+    .philosophy-item h4 {
+      font-family: var(--font-display); font-size: 0.5rem;
+      color: var(--phosphor-amber); letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+    .philosophy-item p { font-size: 1.15rem; color: var(--text-mid); line-height: 1.7; }
+
+    /* Tech stack */
+    .tech-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.8rem; margin-bottom: 2rem;
+    }
+
+    .tech-item {
+      background: linear-gradient(135deg, rgba(26,21,16,0.8), rgba(58,42,26,0.3));
+      border: 1px solid var(--rust-dark);
+      border-left: 3px solid var(--rust-mid);
+      padding: 1rem 1.2rem;
+      transition: border-left-color 0.3s, transform 0.3s;
+    }
+    .tech-item:hover { border-left-color: var(--phosphor-amber); transform: translateX(4px); }
+
+    .tech-item .tech-name {
+      font-family: var(--font-display); font-size: 0.45rem;
+      color: var(--phosphor-amber-dim); letter-spacing: 1px;
+      margin-bottom: 0.3rem;
+    }
+    .tech-item .tech-role { font-size: 1rem; color: var(--text-dim); }
+
+    .about-cta {
+      margin-top: 2rem;
+      display: flex; gap: 1rem; flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .tech-grid { grid-template-columns: 1fr; }
+      .about-cta { flex-direction: column; }
+      .about-cta a { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="logo-nav.png" alt="Suthern Studios" class="nav-logo-img">SUTHERN STUDIOS</a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html" onclick="closeMenu()">HOME</a></li>
+      <li><a href="about.html" class="active" onclick="closeMenu()">ABOUT</a></li>
+      <li><a href="aftershock.html" onclick="closeMenu()">AFTERSHOCK</a></li>
+      <li><a href="devlog.html" onclick="closeMenu()">DEVLOG</a></li>
+      <li><a href="contact.html" onclick="closeMenu()">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-content">
+    <span class="section-label">// SYS.ABOUT</span>
+    <h1 class="section-title text-amber">WHO WE ARE</h1>
+
+    <div class="fade-in" style="display:flex; align-items:flex-start; gap:2rem; margin-bottom:2.5rem; flex-wrap:wrap;">
+      <img src="logo-120.png" alt="Suthern Studios" style="width:100px; height:100px; image-rendering:pixelated; border-radius:50%; border:2px solid var(--rust-mid); box-shadow:0 0 20px rgba(255,170,32,0.15); flex-shrink:0;">
+      <p class="about-intro" style="margin-bottom:0;">
+        <strong>Suthern Studios</strong> is a solo indie game development studio building deep, systems-driven games with handcrafted pixel art. We believe in tight mechanics, interconnected systems, and worlds that feel alive — not polished to perfection, but crafted with purpose.
+      </p>
+    </div>
+
+    <div class="about-grid fade-in">
+      <div class="stat-block rust-panel">
+        <h3>&gt; MISSION_</h3>
+        <p>Build games with soul. No filler, no fluff — deep systems, meaningful choices, and worlds worth surviving in.</p>
+      </div>
+      <div class="stat-block rust-panel">
+        <h3>&gt; STRUCTURE_</h3>
+        <p>One person. All code, all design, all art direction. Built solo from the ground up — from world generation to combat AI.</p>
+      </div>
+      <div class="stat-block rust-panel">
+        <h3>&gt; GENRE.FOCUS_</h3>
+        <p>Colony sims, survival strategy, base builders, and procedurally generated worlds — if every system connects, we're making it.</p>
+      </div>
+      <div class="stat-block rust-panel">
+        <h3>&gt; STATUS_</h3>
+        <p>First title <strong style="color:var(--phosphor-amber)">AfterShock</strong> in active development. Coming to Steam Early Access.</p>
+      </div>
+    </div>
+
+    <div class="rust-divider"></div>
+
+    <!-- Philosophy -->
+    <div class="philosophy-terminal terminal fade-in-2">
+      <div class="terminal-chrome">
+        <span class="chrome-dot red"></span>
+        <span class="chrome-dot amber"></span>
+        <span class="chrome-dot green"></span>
+        <span class="chrome-title">PHILOSOPHY.LOG</span>
+      </div>
+      <div class="terminal-body">
+        <div class="philosophy-item">
+          <h4>&gt; SYSTEMS OVER SPECTACLE</h4>
+          <p>A game is only as good as the way its pieces talk to each other. We'd rather have ten deeply connected systems than a hundred shallow ones. What you grow feeds who you keep alive — that's not a tagline, it's an architecture decision.</p>
+        </div>
+        <div class="philosophy-item">
+          <h4>&gt; PIXEL ART IS A CHOICE, NOT A SHORTCUT</h4>
+          <p>32&times;32 tiles rendered through URP 2D. Every sprite is deliberate. Pixel art isn't a budget compromise — it's a design philosophy that forces clarity and intention into every visual element.</p>
+        </div>
+        <div class="philosophy-item">
+          <h4>&gt; BUILD IN PUBLIC</h4>
+          <p>No NDAs, no smoke and mirrors. Development happens in the open. When something breaks, you'll hear about it. When something clicks, you'll see it first.</p>
+        </div>
+        <div class="philosophy-item">
+          <h4>&gt; MODDABLE BY DEFAULT</h4>
+          <p>Games belong to their communities. AfterShock is built with mod-friendly architecture and full modding rights from day one. If you can dream it, you should be able to build it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="rust-divider"></div>
+
+    <!-- Tech Stack -->
+    <h2 class="section-title text-amber fade-in-3" style="font-size: 0.8rem;">&gt; TECH_STACK</h2>
+
+    <div class="tech-grid fade-in-3">
+      <div class="tech-item">
+        <div class="tech-name">UNITY</div>
+        <div class="tech-role">Game engine</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">C#</div>
+        <div class="tech-role">Core language</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">URP 2D</div>
+        <div class="tech-role">Rendering pipeline</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">RETRO DIFFUSION</div>
+        <div class="tech-role">Pixel art generation</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">CLAUDE CODE</div>
+        <div class="tech-role">AI-assisted development</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">VS CODE</div>
+        <div class="tech-role">Primary IDE</div>
+      </div>
+    </div>
+
+    <div class="about-cta fade-in-4">
+      <a href="aftershock.html" class="btn-amber">&gt; SEE AFTERSHOCK</a>
+      <a href="contact.html" class="btn-outline">&gt; GET IN TOUCH</a>
+    </div>
+  </main>
+
+
+  <!-- NEWSLETTER -->
+  <div style="max-width:1100px; margin:0 auto; padding:0 2rem;">
+    <div class="newsletter-bar">
+      <div class="nl-text">
+        <div class="nl-title">&gt; SUBSCRIBE_</div>
+        <div class="nl-desc">Get devlog updates and launch news. No spam — just build logs from the wasteland.</div>
+      </div>
+      <div>
+        <div class="nl-form" id="nl-form">
+          <input type="email" id="nl-email" placeholder="your@email.com" required>
+          <button type="button" onclick="submitNewsletter()">&gt; SUBSCRIBE</button>
+        </div>
+        <div class="nl-status" id="nl-status"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-rust-line">
+      <span style="background:var(--rust-dark);width:40px"></span>
+      <span style="background:var(--rust-mid);width:20px"></span>
+      <span style="background:var(--rust-light);width:30px"></span>
+      <span style="background:var(--rust-mid);width:15px"></span>
+      <span style="background:var(--rust-dark);width:40px"></span>
+    </div>
+    <p>&copy; 2026 SUTHERN STUDIOS &mdash; ALL RIGHTS RESERVED</p>
+    <div class="footer-nav">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="aftershock.html">AFTERSHOCK</a>
+      <a href="devlog.html">DEVLOG</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </footer>
+
+  <script>
+    function closeMenu() { document.querySelector('.nav-links').classList.remove('open'); }
+  </script>
+</body>
+</html>
